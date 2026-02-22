@@ -12,7 +12,7 @@ mongoose.connect(process.env.MONGO_URI)
 
 // Webhook
 app.post("/erlc-webhook", (req, res) => {
-    const apiKey = req.headers["x-api-key"];
+    const apiKey = req.headers["oQPLcrDzEUFMyvfqdJQL-PJDRWWHtKGBRMKhYiKQdDBaFAlxYIieTxEgQUQGR"];
 
     if (apiKey !== process.env.ERLC_SECRET) {
         return res.sendStatus(403);
