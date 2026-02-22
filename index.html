@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CAD</title>
+</head>
+<body>
+
+<h1>Llamados Activos</h1>
+<ul id="calls"></ul>
+
+<script>
+async function cargarCalls() {
+    const res = await fetch("http://localhost:3000/calls");
+    const data = await res.json();
+
+    const lista = document.getElementById("calls");
+    lista.innerHTML = "";
+
+    data.forEach(call => {
+        const li = document.createElement("li");
+        li.innerText = `${call.type} - ${call.department}`;
+        lista.appendChild(li);
+    });
+}
+
+setInterval(cargarCalls, 5000);
+cargarCalls();
+</script>
+
+</body>
+</html>
